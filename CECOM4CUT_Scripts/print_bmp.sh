@@ -22,7 +22,8 @@ ucTemp7=$(printf "%02x" $((IMG_HEIGHT >> 8)))
 BMP_PREFIX="$ucTemp0$ucTemp1$ucTemp2$ucTemp3$ucTemp4$ucTemp5$ucTemp6$ucTemp7"
 
 gatttool -b $PRINTER_MAC --char-write-req --handle=$PRINT_HANDLE --value=$BMP_PREFIX
-gatttool -b $PRINTER_MAC --char-write-req --handle=$PRINT_HANDLE --value=00000000000000000000
+#gatttool -b $PRINTER_MAC --char-write-req --handle=$PRINT_HANDLE --value=00000000000000000000
+gatttool -b $PRINTER_MAC --char-write-req --handle=$PRINT_HANDLE --value=000000000000000000000000000000000000
 
 HEX_FILE_DATA=$(xxd -p "$PRINT_FILE_NAME" | tr -d '\n')
 HEX_FILE_LEN=${#HEX_FILE_DATA}
