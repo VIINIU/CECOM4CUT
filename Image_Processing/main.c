@@ -1,7 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
 #include "image_process.h"
 
 FILE            *open_file(char *filename);
