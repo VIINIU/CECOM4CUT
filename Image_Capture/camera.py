@@ -2,12 +2,13 @@
 import time
 from picamera2 import Picamera2, Preview
 
-picam2 = Picamera2()
+def capture_image():
+    picam2 = Picamera2()
+    picam2.start()
+    time.sleep(2)
 
-picam2.start()
-time.sleep(2)
+    picam2.capture_file("test.jpg")
+    picam2.close()
 
-metadata = picam2.capture_file("test.jpg")
-print(metadata)
-
-picam2.close()
+if __name__ == "__main__":
+    capture_image()
