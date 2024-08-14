@@ -1,0 +1,6 @@
+#ifndef CECOM4CUT_IMAGE_PROCESS_H
+# define CECOM4CUT_IMAGE_PROCESS_H
+
+# define RESULT_WIDTH 320
+
+#endif
