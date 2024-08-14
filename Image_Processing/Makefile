@@ -1,14 +1,15 @@
-CC	= gcc
+CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror
 
 TARGET	= image_process
 SRCS	= main.c
 OBJS	= $(SRCS:.c=.o)
+LIBS	= -ljpeg
 
 all: $(TARGET)
 
 $(TARGET): $(OBJS)
-	$(CC) -o $(TARGET) $(OBJS)
+	$(CC) -o $(TARGET) $(OBJS) $(LIBS)
 
 $(OBJS): $(SRCS)
 	$(CC) -c $(SRCS)
