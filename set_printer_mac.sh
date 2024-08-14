@@ -10,3 +10,4 @@ fi
 
 echo "Found Printer! Address is $MAC_ADDR"
 export PRINTER_MAC=$MAC_ADDR
+echo "Registered Printer Address... Done!"
