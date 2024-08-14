@@ -2,7 +2,7 @@ CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror
 
 TARGET	= image_process
-SRCS	= main.c
+SRCS	= main.c image_process.c
 OBJS	= $(SRCS:.c=.o)
 LIBS	= -ljpeg
 
