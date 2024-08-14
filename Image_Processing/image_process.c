@@ -55,18 +55,18 @@ void	write_1bit_bmp(const char *filename, unsigned char *image_buffer, int width
     fclose(file);
 }
 
-unsigned char *resize_image(unsigned char *image_buffer, int orig_width, int orig_height, int new_width, int *new_height)
+unsigned char *resize_image(unsigned char *image_buffer, int *org_width, int *org_height, int new_width, int *new_height)
 {
-    *new_height = orig_height * new_width / orig_width;
+    *new_height = *org_height * new_width / *org_width;
     unsigned char *resized_buffer = (unsigned char *)malloc(new_width * (*new_height) * sizeof(unsigned char));
 
     for (int y = 0; y < *new_height; y++)
 	{
         for (int x = 0; x < new_width; x++)
 		{
-            int orig_x = x * orig_width / new_width;
-            int orig_y = y * orig_height / *new_height;
-            resized_buffer[y * new_width + x] = image_buffer[orig_y * orig_width + orig_x];
+            int orig_x = x * (*org_width) / new_width;
+            int orig_y = y * (*org_height) / *new_height;
+            resized_buffer[y * new_width + x] = image_buffer[orig_y * (*org_width) + orig_x];
         }
     }
 
