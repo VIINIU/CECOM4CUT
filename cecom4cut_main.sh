@@ -27,4 +27,6 @@ sleep 0.5
 bash Print_Scripts/print_bmp.sh "$IMAGE_FILENAME.bmp" $IMAGE_HEIGHT $IMAGE_WIDTH
 sleep 0.5
 bash Print_Scripts/print_bmp.sh "resources/frame_f.bmp" 255 $IMAGE_WIDTH
+sleep 0.5
+bash Print_Scripts/print_feed.sh 3
 echo "Print Image Done..!"
