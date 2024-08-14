@@ -30,7 +30,5 @@ HEX_FILE_LEN=${#HEX_FILE_DATA}
 
 for (( i=0; i<$HEX_FILE_LEN; i+=$IMG_WIDTH )); do
 	TMP_DATA=${HEX_FILE_DATA:i:IMG_WIDTH}
-	gatttool -b $PRINTER_MAC --char-write-req --handle=$PRINT_HANDLE --value=$TMP_DATA
+	gatttool -b $PRINTER_MAC --char-write-req --handle=$PRINT_HANDLE --value=$TMP_DATA > /dev/null
 done
-
-gatttool -b $PRINTER_MAC --char-write-req --handle=$PRINT_HANDLE --value=0a0a0a0a0a
