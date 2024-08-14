@@ -1,14 +1,7 @@
 #include "image_process.h"
 
-void	write_1bit_bmp(const char *filename, unsigned char *image_buffer, int width, int height)
+void	write_1bit_bmp(FILE *res_file, unsigned char *image_buffer, int width, int height)
 {
-    FILE *file = fopen(filename, "wb");
-    if (!file)
-	{
-        fprintf(stderr, "Failed to open file for writing\n");
-        exit(1);
-    }
-
     int padded_width = (width + 31) / 32 * 4;
     int filesize = 54 + padded_width * height;
 
@@ -32,9 +25,9 @@ void	write_1bit_bmp(const char *filename, unsigned char *image_buffer, int width
 
     unsigned char color_palette[8] = { 0xFF, 0xFF, 0xFF, 0x00, 0x00, 0x00, 0x00, 0x00 };
 
-    fwrite(bmpfileheader, 1, 14, file);
-    fwrite(bmpinfoheader, 1, 40, file);
-    fwrite(color_palette, 1, 8, file);
+    fwrite(bmpfileheader, 1, 14, res_file);
+    fwrite(bmpinfoheader, 1, 40, res_file);
+    fwrite(color_palette, 1, 8, res_file);
 
     unsigned char *bmp_buffer = (unsigned char *)calloc(padded_width, 1);
     for (int y = 0; y < height; y++)
@@ -48,11 +41,10 @@ void	write_1bit_bmp(const char *filename, unsigned char *image_buffer, int width
             if (pixel < 128)
                 bmp_buffer[byte_idx] |= (1 << bit_idx);
         }
-        fwrite(bmp_buffer, 1, padded_width, file);
+        fwrite(bmp_buffer, 1, padded_width, res_file);
     }
 
     free(bmp_buffer);
-    fclose(file);
 }
 
 unsigned char *resize_image(unsigned char *image_buffer, int *org_width, int *org_height, int new_width, int *new_height)
