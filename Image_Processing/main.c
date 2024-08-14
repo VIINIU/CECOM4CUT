@@ -6,9 +6,13 @@ void            exit_err(char *msg);
 
 int main(int argc, char **argv)
 {
-    unsigned char   *image_buffer;
+    unsigned char   *org_buffer;
+    unsigned char   *res_buffer;
     char            *org_file_name;
     char            *res_file_name;
+    int             org_height;
+    int             org_width;
+    int             res_height;
     FILE            *org_file;
     FILE            *res_file;
 
@@ -20,8 +24,10 @@ int main(int argc, char **argv)
     org_file = open_file(org_file_name);
     if (org_file == NULL)
         exit_err("Failed to open original file.");
-    image_buffer = get_jpeg_buffer(org_file);
-    free(image_buffer);
+    org_buffer = get_jpeg_buffer(org_file);
+    res_buffer = resize_image(org_buffer, &org_width, &org_height, RESULT_WIDTH, &res_height);
+    write_1bit_bmp(res_file_name, res_buffer, RESULT_WIDTH, res_height);
+    free(org_buffer);
     free(org_file_name);
     free(res_file_name);
 	return (0);
