@@ -22,5 +22,9 @@ python3 Image_Processing/process.py "$IMAGE_FILENAME.jpg" "$IMAGE_FILENAME.bmp" 
 echo "Process Image Done..!"
 
 echo "Printing Image..."
+bash Print_Scripts/print_bmp.sh "resources/frame_h.bmp" 40 $IMAGE_WIDTH
+sleep 0.5
 bash Print_Scripts/print_bmp.sh "$IMAGE_FILENAME.bmp" $IMAGE_HEIGHT $IMAGE_WIDTH
+sleep 0.5
+bash Print_Scripts/print_bmp.sh "resources/frame_f.bmp" 255 $IMAGE_WIDTH
 echo "Print Image Done..!"
