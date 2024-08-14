@@ -4,6 +4,14 @@ IMAGE_FILENAME=test
 IMAGE_HEIGHT=240
 IMAGE_WIDTH=320
 
+if [ -z "$PRINTER_MAC" ]; then
+	echo "Printer address is not registered."
+	echo "Trying to register..."
+	sh set_printer_mac.sh
+fi
+
+sleep 1
+
 echo "Capturing Image..."
 python3 Image_Capture/camera.py "$IMAGE_FILENAME.jpg" >> /dev/null
 echo "Capture Image Done..!"
