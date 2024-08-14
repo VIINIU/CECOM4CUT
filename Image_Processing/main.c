@@ -1,6 +1,6 @@
 #include "image_process.h"
 
-FILE            *open_file(char *filename);
+FILE            *open_file(char *filename, char *flag);
 unsigned char   *get_jpeg_buffer(FILE *org_file);
 void            exit_err(char *msg);
 
@@ -21,23 +21,26 @@ int main(int argc, char **argv)
     org_file_name = strdup(argv[1]);
     res_file_name = strdup(argv[2]);
 	printf("Original Filename: %s / Result Filename: %s\n", org_file_name, res_file_name);
-    org_file = open_file(org_file_name);
+    org_file = open_file(org_file_name, "rb");
     if (org_file == NULL)
         exit_err("Failed to open original file.");
     org_buffer = get_jpeg_buffer(org_file);
     res_buffer = resize_image(org_buffer, &org_width, &org_height, RESULT_WIDTH, &res_height);
-    write_1bit_bmp(res_file_name, res_buffer, RESULT_WIDTH, res_height);
+    res_file = open_file(res_file_name, "wb");
+    if (res_file == NULL)
+        exit_err("Failed to create result file.");
+    write_1bit_bmp(res_file, res_buffer, RESULT_WIDTH, res_height);
     free(org_buffer);
     free(org_file_name);
     free(res_file_name);
 	return (0);
 }
 
-FILE    *open_file(char *filename)
+FILE    *open_file(char *filename, char *flag)
 {
     FILE *tmp_file;
 
-    tmp_file = fopen(filename, "rb");
+    tmp_file = fopen(filename, flag);
     return tmp_file;
 }
 
