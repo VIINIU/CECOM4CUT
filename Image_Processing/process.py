@@ -16,7 +16,7 @@ def convert_jpg_to_1bit_bmp(input_jpg_path, output_bmp_path):
 
 def main(argv):
     if len(argv) != 3:
-        print("usage: python3 image_process.py <original_jpg_filename> <result_bmp_filename>")
+        print("usage: python3 process.py <original_jpg_filename> <result_bmp_filename>")
         return
 
     convert_jpg_to_1bit_bmp(argv[1], argv[2])
