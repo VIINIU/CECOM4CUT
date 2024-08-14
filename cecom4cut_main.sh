@@ -6,8 +6,8 @@ IMAGE_WIDTH=320
 
 if [ -z "$PRINTER_MAC" ]; then
 	echo "Printer address is not registered."
-	echo "Trying to register..."
-	sh set_printer_mac.sh
+	echo "Please run <source set_printer_mac.sh> first"
+	exit 1
 fi
 
 sleep 1
