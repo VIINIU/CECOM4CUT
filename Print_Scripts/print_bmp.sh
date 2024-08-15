@@ -28,7 +28,8 @@ gatttool -b $PRINTER_MAC --char-write-req --handle=$PRINT_HANDLE --value=0000000
 HEX_FILE_DATA=$(xxd -p "$PRINT_FILE_NAME" | tr -d '\n')
 HEX_FILE_LEN=${#HEX_FILE_DATA}
 
-for (( i=0; i<$HEX_FILE_LEN; i+=$IMG_WIDTH )); do
-	TMP_DATA=${HEX_FILE_DATA:i:IMG_WIDTH}
+PRINT_BUFFER_SIZE=$(printf "%d" $(( (IMG_WIDTH + 7) >> 3 )))
+for (( i=0; i<$HEX_FILE_LEN; i+=$PRINT_BUFFER_SIZE )); do
+	TMP_DATA=${HEX_FILE_DATA:i:PRINT_BUFFER_SIZE}
 	gatttool -b $PRINTER_MAC --char-write-req --handle=$PRINT_HANDLE --value=$TMP_DATA > /dev/null
 done
