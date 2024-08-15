@@ -5,6 +5,9 @@ import time
 
 def capture_image(filename):
     picam2 = Picamera2()
+    camera_config = picam2.create_still_configuration(main={"size": (1920, 1440)})
+    picam2.configure(camera_config)
+
     picam2.start()
     time.sleep(2)
 
@@ -15,7 +18,7 @@ def main(argv):
     if len(argv) != 2:
         print("usage: python3 camera.py <filename>")
         return
-    
+
     capture_image(argv[1])
 
 if __name__ == "__main__":
