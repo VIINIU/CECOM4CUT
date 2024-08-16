@@ -30,16 +30,18 @@ HEX_FILE_LEN=${#HEX_FILE_DATA}
 
 PRINT_BUFFER_SIZE=$(printf "%d" $(( (IMG_WIDTH + 7) >> 3 )))
 for (( i=0; i<$HEX_FILE_LEN; i+=$PRINT_BUFFER_SIZE )); do
-    TMP_DATA=${HEX_FILE_DATA:i:PRINT_BUFFER_SIZE}
-    TMP_DATA_LEN=${#TMP_DATA}
+	TMP_DATA=${HEX_FILE_DATA:i:PRINT_BUFFER_SIZE}
+	TMP_DATA_LEN=${#TMP_DATA}
 
-    for (( j=0; j<$TMP_DATA_LEN; j+=40 )); do
-        if (( j + 40 > TMP_DATA_LEN )); then
-            PRINT_BUFFER=${TMP_DATA:j}
-        else
-            PRINT_BUFFER=${TMP_DATA:j:40}
-        fi
-        gatttool -b $PRINTER_MAC --char-write-req --handle=$PRINT_HANDLE --value=$PRINT_BUFFER > /dev/null
-    done
+	for (( j=0; j<$TMP_DATA_LEN; j+=40 )); do
+		PRINT_BUFFER=${TMP_DATA:j:40}
+		gatttool -b $PRINTER_MAC --char-write-req --handle=$PRINT_HANDLE --value=$PRINT_BUFFER > /dev/null
+	done
+	REMAIN_LEN=$((TMP_DATA_LEN % 40))
+	if (( REMAIN_LEN > 0 )); then
+		REMAIN_FROM=$((j - 40))
+		PRINT_BUFFER=${TMP_DATA:REMAIN_FROM:REMAIN_LEN}
+		gatttool -b $PRINTER_MAC --char-write-req --handle=$PRINT_HANDLE --value=$PRINT_BUFFER > /dev/null
+	fi
 done
 
