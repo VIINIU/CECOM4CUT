@@ -5,6 +5,7 @@ After=multi-user.target
 [Service]
 ExecStart=/usr/bin/python3 /home/yong/Projects/CECOM4CUT/GPIO_Listener/gpio_listener.py
 WorkingDirectory=/home/yong/Projects/CECOM4CUT
+Environment="PRINTER_MAC=86:67:7A:B0:91:37"
 StandardOutput=inherit
 StandardError=inherit
 Restart=always
