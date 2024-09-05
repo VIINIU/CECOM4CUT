@@ -1,0 +1,14 @@
+[Unit]
+Description=CECOM4CUT Trigger Service
+After=multi-user.target
+
+[Service]
+ExecStart=/usr/bin/python3 /home/yong/Projects/CECOM4CUT/GPIO_Listener/gpio_listener.py
+WorkingDirectory=/home/yong/Projects/CECOM4CUT
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+User=yong
+
+[Install]
+WantedBy=multi-user.target
