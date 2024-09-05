@@ -45,3 +45,11 @@ for (( i=0; i<$HEX_FILE_LEN; i+=$PRINT_BUFFER_SIZE )); do
 	fi
 done
 
+REMAIN_LEN=$((HEX_FILE_LEN % PRINT_BUFFER_SIZE))
+if (( REMAIN_LEN > 0 )); then
+	REMAIN_FROM=$((HEX_FILE_LEN - REMAIN_LEN))
+	PRINT_BUFFER=${HEX_FILE_DATA:REMAIN_FROM:REMAIN_LEN}
+	gatttool -b $PRINTER_MAC --char-write-req --handle=$PRINT_HANDLE --value=$PRINT_BUFFER > /dev/null
+fi
+
+gatttool -b $PRINTER_MAC --char-write-req --handle=$PRINT_HANDLE --value=000000
