@@ -16,27 +16,27 @@ fi
 sleep 1
 
 echo "Capturing Image..."
-python3 Image_Capture/camera.py "$IMAGE_FILENAME.jpg" >> /dev/null
+python3 Image_Capture/camera.py "result/$IMAGE_FILENAME.jpg" >> /dev/null
 echo "Capture Image Done..!"
 
 echo "Processing Image..."
-python3 Image_Processing/process.py "$IMAGE_FILENAME.jpg" "$IMAGE_FILENAME.bmp" $IMAGE_WIDTH $IMAGE_HEIGHT
-python3 Image_QR/qr_generator.py "$IMAGE_FILENAME"
-python3 Image_Processing/process.py "$IMAGE_FILENAME.qr.bmp" "$IMAGE_FILENAME.qr.bmp" $QR_WIDTH $QR_HEIGHT
+python3 Image_Processing/process.py "result/$IMAGE_FILENAME.jpg" "result/$IMAGE_FILENAME.bmp" $IMAGE_WIDTH $IMAGE_HEIGHT
+python3 Image_QR/qr_generator.py "result/$IMAGE_FILENAME"
+python3 Image_Processing/process.py "result/$IMAGE_FILENAME.qr.bmp" "result/$IMAGE_FILENAME.qr.bmp" $QR_WIDTH $QR_HEIGHT
 echo "Process Image Done..!"
 
 echo "Printing Image..."
 bash Print_Scripts/print_bmp.sh "resources/frame_h_rev.bmp" 40 $IMAGE_WIDTH
 sleep 0.1
-bash Print_Scripts/print_bmp.sh "$IMAGE_FILENAME.bmp" $((IMAGE_HEIGHT + 5)) $IMAGE_WIDTH
+bash Print_Scripts/print_bmp.sh "result/$IMAGE_FILENAME.bmp" $((IMAGE_HEIGHT + 5)) $IMAGE_WIDTH
 sleep 0.1
 bash Print_Scripts/print_bmp.sh "resources/frame_f_rev.bmp" 255 $IMAGE_WIDTH
 sleep 0.1
-bash Print_Scripts/print_bmp.sh "$IMAGE_FILENAME.qr.bmp" $((QR_HEIGHT + 5)) $QR_WIDTH
+bash Print_Scripts/print_bmp.sh "result/$IMAGE_FILENAME.qr.bmp" $((QR_HEIGHT + 5)) $QR_WIDTH
 sleep 0.1
 bash Print_Scripts/print_feed.sh 5
 echo "Print Image Done..!"
 
 echo "Uploading Image..."
-python3 Image_Upload/image_upload.py "$IMAGE_FILENAME.jpg"
+python3 Image_Upload/image_upload.py "result/$IMAGE_FILENAME.jpg"
 echo "Upload Image Done..!"
