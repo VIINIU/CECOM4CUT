@@ -28,7 +28,9 @@ bash Print_Scripts/print_bmp.sh "$IMAGE_FILENAME.bmp" $IMAGE_HEIGHT $IMAGE_WIDTH
 sleep 0.1
 bash Print_Scripts/print_bmp.sh "resources/frame_f_rev.bmp" 255 $IMAGE_WIDTH
 sleep 0.1
-bash Print_Scripts/print_feed.sh 6
+bash Print_Scripts/print_feed.sh 5
+sleep 0.1
+bash Print_Scripts/print_msg.sh "https://4cut.cecom.dev/download/$IMAGE_FILENAME"
 echo "Print Image Done..!"
 
 echo "Uploading Image..."
