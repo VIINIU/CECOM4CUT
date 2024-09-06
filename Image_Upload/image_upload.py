@@ -8,7 +8,7 @@ def upload_file(file_name):
 
 	upload_data = {
 		"file": file_buffer,
-		"filename": file_name,
+		"filename": file_name.replace("result/", ""),
 	}
 
 	upload_url = "https://4cut.cecom.dev/upload"
