@@ -16,7 +16,7 @@ fi
 sleep 1
 
 echo "Capturing Image..."
-python3 GPIO_Manager/gpio_camera_led.py
+python3 GPIO_Manager/gpio_led_camera_ready.py
 python3 Image_Capture/camera.py "result/$IMAGE_FILENAME.jpg"
 echo "Capture Image Done..!"
 
