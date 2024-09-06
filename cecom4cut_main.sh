@@ -30,3 +30,7 @@ bash Print_Scripts/print_bmp.sh "resources/frame_f_rev.bmp" 255 $IMAGE_WIDTH
 sleep 0.1
 bash Print_Scripts/print_feed.sh 6
 echo "Print Image Done..!"
+
+echo "Uploading Image..."
+python3 Image_Upload/image_upload.py "$IMAGE_FILENAME.jpg"
+echo "Upload Image Done..!"
