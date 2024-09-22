@@ -25,7 +25,7 @@ __set_printer_mac.sh__ : `PT-210` 프린터를 탐색하고, 이를 시스템 �
 | --- | --- |
 | <img src="resources/profile_yymin1022.png" width="150" /> | <img src="resources/profile_viiniu.png" width="150" /> |
 | RPI 스크립트 개발 | ESP32 기반 Trigger 개발 |
-| 소프트웨어학부 "19 | 전자전기공학부 "21 |
+| 소프트웨어학부 "19 | 전자전기공학부 "22 |
 
 ## Project Example
 
