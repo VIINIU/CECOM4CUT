@@ -19,8 +19,16 @@ __Print_Scripts__ : BLE GATT를 통해 프린터로 사진 버퍼를 전송합�
 __Systemd_scripts__ : `cecom4cut_main.sh` 스크립트를 트리거를 통해 호출하기 위해 Systemd 서비스를 등록하는 스크립트입니다.
 __set_printer_mac.sh__ : `PT-210` 프린터를 탐색하고, 이를 시스템 환경변수에 등록하기 위한 스크립트입니다.
 
-### Project Example
+## Teams
+
+| [유용민](https://github.com/yymin1022) | [서유빈](https://github.com/viiniu) |
+| --- | --- |
+| <img src="resources/profile_yymin1022.png" width="150" /> | <img src="resources/profile_viiniu.png" width="150" /> |
+| RPI 스크립트 개발 | ESP32 기반 Trigger 개발 |
+| 소프트웨어학부 "19 | 전자전기공학부 "21 |
+
+## Project Example
 
 <div>
-<img src="resources/cecom4cut_example.jpg" width=50%"></img>
+  <img src="resources/cecom4cut_example.jpg" width=50%"></img>
 </div>
