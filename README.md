@@ -5,7 +5,7 @@ RPI4 기반의 카메라 모듈을 이용해 사진을 촬영하고, 이를 영�
 
 ## Project Structure
 ### Scripts
-__cecom4cut_main.sh__ : 사진 촬영과 처리, 출력의 과정을 각각 수행하는 하단의 __Runners__ 스크립트를 순차적으로 연속해 실행합니다.<br/>
+__cecom4cut_main.sh__ : 사진 촬영과 처리, 출력의 과정을 각각 수행하는 하단의 `Runners` 스크립트를 순차적으로 연속해 실행합니다.<br/>
 __cecom4cut_reprint.sh__ : GATT 전송 과정에서 발생하는 버퍼 실패 문제로 출력이 잘못된 경우, 마지막에 촬영한 사진을 재출력하는 스크립트입니다.<br/>
 
 ### Runners
@@ -18,3 +18,9 @@ __Print_Scripts__ : BLE GATT를 통해 프린터로 사진 버퍼를 전송합�
 ### Utils
 __Systemd_scripts__ : `cecom4cut_main.sh` 스크립트를 트리거를 통해 호출하기 위해 Systemd 서비스를 등록하는 스크립트입니다.
 __set_printer_mac.sh__ : `PT-210` 프린터를 탐색하고, 이를 시스템 환경변수에 등록하기 위한 스크립트입니다.
+
+### Project Example
+
+<div>
+<img src="resources/cecom4cut_example.jpg" width=50%"></img>
+</div>
