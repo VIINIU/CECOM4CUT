@@ -16,7 +16,7 @@ __Image_QR__ : 촬영된 이미지를 다운로드할 수 있는 URL 정보를 Q
 __Print_Scripts__ : BLE GATT를 통해 프린터로 사진 버퍼를 전송합니다. 상단 프레임, 촬영 이미지, 하단 프레임, QR코드를 순차적으로 전송합니다.<br/>
 
 ### Utils
-__Systemd_scripts__ : `cecom4cut_main.sh` 스크립트를 트리거를 통해 호출하기 위해 Systemd 서비스를 등록하는 스크립트입니다.
+__Systemd_scripts__ : `cecom4cut_main.sh` 스크립트를 트리거를 통해 호출하기 위해 Systemd 서비스를 등록하는 스크립트입니다.<br/>
 __set_printer_mac.sh__ : `PT-210` 프린터를 탐색하고, 이를 시스템 환경변수에 등록하기 위한 스크립트입니다.
 
 ## Teams
