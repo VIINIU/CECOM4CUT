@@ -30,6 +30,6 @@ __set_printer_mac.sh__ : `PT-210` 프린터를 탐색하고, 이를 시스템 �
 ## Project Example
 
 <div style="display: flex; flex-direction: row;">
-  <img src="resources/cecom4cut_example.jpg" width=50%"></img>
-  <img src="resources/cecom4cut_device.jpg" width=50%"></img>
+  <img src="resources/cecom4cut_example.jpg" width=45%"></img>
+  <img src="resources/cecom4cut_device.jpg" width=45%"></img>
 </div>
