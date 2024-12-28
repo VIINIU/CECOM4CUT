@@ -12,3 +12,7 @@ if [ $? -ne 0 ]; then
 fi
 
 sh /Systemd_scripts/systemd_installer.sh
+if [ $? -ne 0 ]; then
+    echo "Error: Failed to register CECOM4CUT service to system."
+    exit 1
+fi
