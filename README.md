@@ -19,6 +19,14 @@ __Print_Scripts__ : BLE GATT를 통해 프린터로 사진 버퍼를 전송합�
 ### Utils
 __Systemd_scripts__ : `cecom4cut_main.sh` 스크립트를 트리거를 통해 호출하기 위해 Systemd 서비스를 등록하는 스크립트입니다.
 
+## How to install
+```bash
+yong@rpi:~$ git clone https://github.com/yymin1022/CECOM4CUT
+yong@rpi:~$ cd CECOM4CUT
+yong@rpi:~$ chmod +x cecom4cut_installer.sh
+yong@rpi:~$ ./cecom4cut_installer.sh
+```
+
 ## Teams
 
 | [유용민](https://github.com/yymin1022) | [서유빈](https://github.com/viiniu) |
