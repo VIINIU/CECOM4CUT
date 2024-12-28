@@ -6,5 +6,9 @@ if [ $? -ne 0 ]; then
 fi
 
 bash /set_printer_mac.sh
+if [ $? -ne 0 ]; then
+    echo "Error: Failed to find and register Printer."
+    exit 1
+fi
 
 sh /Systemd_scripts/systemd_installer.sh
