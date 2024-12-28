@@ -5,7 +5,7 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-bash ./set_printer_mac.sh
+bash ./Printer_Scripts/set_printer_mac.sh
 if [ $? -ne 0 ]; then
     echo "Error: Failed to find and register Printer."
     exit 1

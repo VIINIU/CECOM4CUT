@@ -16,13 +16,13 @@ fi
 sleep 1
 
 echo "Printing Image..."
-bash Print_Scripts/print_bmp.sh "resources/frame_h_rev.bmp" 40 $IMAGE_WIDTH
+bash Printer_Scripts/print_bmp.sh "resources/frame_h_rev.bmp" 40 $IMAGE_WIDTH
 sleep 0.1
-bash Print_Scripts/print_bmp.sh "result/$IMAGE_FILENAME.bmp" $((IMAGE_HEIGHT + 5)) $IMAGE_WIDTH
+bash Printer_Scripts/print_bmp.sh "result/$IMAGE_FILENAME.bmp" $((IMAGE_HEIGHT + 5)) $IMAGE_WIDTH
 sleep 0.1
-bash Print_Scripts/print_bmp.sh "resources/frame_f_rev.bmp" 255 $IMAGE_WIDTH
+bash Printer_Scripts/print_bmp.sh "resources/frame_f_rev.bmp" 255 $IMAGE_WIDTH
 sleep 0.1
-bash Print_Scripts/print_bmp.sh "result/$IMAGE_FILENAME.qr.bmp" $((QR_HEIGHT + 5)) $QR_WIDTH
+bash Printer_Scripts/print_bmp.sh "result/$IMAGE_FILENAME.qr.bmp" $((QR_HEIGHT + 5)) $QR_WIDTH
 sleep 0.1
-bash Print_Scripts/print_feed.sh 5
+bash Printer_Scripts/print_feed.sh 5
 echo "Print Image Done..!"
