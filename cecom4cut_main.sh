@@ -35,7 +35,7 @@ python3 Image_Processing/process.py "result/$IMAGE_FILENAME.jpg" "result/$IMAGE_
 echo "Process Image Done..!"
 
 echo "Printing Image..."
-bash Printer_Scripts/print_bmp.sh "result/$IMAGE_FILENAME.bmp" $IMAGE_HEIGHT $IMAGE_WIDTH
+bash Printer_Scripts/print_bmp.sh "result/$IMAGE_FILENAME.bmp" $IMAGE_RESULT_HEIGHT $IMAGE_RESULT_WIDTH
 sleep 0.1
 bash Printer_Scripts/print_feed.sh 5
 echo "Print Image Done..!"
