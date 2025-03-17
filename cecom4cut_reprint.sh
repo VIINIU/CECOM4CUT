@@ -16,5 +16,5 @@ sleep 1
 echo "Printing Image..."
 bash Printer_Scripts/print_bmp.sh "result/$IMAGE_FILENAME.bmp" $IMAGE_HEIGHT $IMAGE_WIDTH
 sleep 0.1
-bash Printer_Scripts/print_feed.sh 5
+bash Printer_Scripts/print_feed.sh 50
 echo "Print Image Done..!"
